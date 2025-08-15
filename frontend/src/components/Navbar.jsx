@@ -67,7 +67,7 @@ const Navbar = () => {
 
           {/* Download CV Button - Desktop */}
           <a 
-            href="/public/resume.pdf" 
+            href="/resume.pdf" 
             target="_blank"
             className="hidden lg:block bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-black font-semibold px-6 py-2.5 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-amber-500/25"
           >
