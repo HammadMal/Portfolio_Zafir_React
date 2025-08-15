@@ -1,7 +1,14 @@
 import React from 'react';
 import { Brain, Cpu, Code, ArrowRight } from 'lucide-react';
 
+
+
 const Services = () => {
+  function click () {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  }
+
+
   const services = [
     {
       icon: Brain,
@@ -76,10 +83,10 @@ const Services = () => {
                 </div>
 
                 {/* Learn More Link */}
-                <button className="flex items-center gap-2 text-amber-400 font-semibold group-hover:gap-3 transition-all duration-300">
+                {/* <button className="flex items-center gap-2 text-amber-400 font-semibold group-hover:gap-3 transition-all duration-300">
                   Learn More 
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                </button>
+                </button> */}
               </div>
             );
           })}
@@ -90,7 +97,7 @@ const Services = () => {
           <p className="text-gray-400 mb-6">
             Looking for something specific? Let's discuss your project!
           </p>
-          <button className="px-8 py-4 bg-gradient-to-r from-amber-600 to-amber-500 rounded-full font-semibold text-black hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/30 transition-all duration-300">
+          <button onClick={click} className="px-8 py-4 bg-gradient-to-r from-amber-600 to-amber-500 rounded-full font-semibold text-black hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/30 transition-all duration-300">
             Get In Touch
           </button>
         </div>

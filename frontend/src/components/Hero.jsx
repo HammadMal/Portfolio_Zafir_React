@@ -3,6 +3,11 @@ import { ArrowDown, Github, Linkedin, Twitter, Instagram, Facebook } from 'lucid
 import { motion } from 'framer-motion';
 
 const Hero = () => {
+  function buttonclick() {
+    //navigate to this online link
+
+    window.open('https://www.linkedin.com/in/mzafirr', '_blank');
+  }
   const [titleIndex, setTitleIndex] = useState(0);
   const titles = [
     "Zafir"
@@ -92,7 +97,7 @@ const Hero = () => {
           transition={{ delay: 1, duration: 0.8 }}
           className="text-gray-400 text-lg md:text-xl mb-8 tracking-widest"
         >
-          INNOVATOR | CREATOR
+          ENGINEER | PROGRAMMER
         </motion.p>
         
         {/* Buttons with Stagger Animation */}
@@ -103,7 +108,7 @@ const Hero = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
         >
           <motion.a 
-            href="/path-to-your-cv.pdf" 
+            href="/resume.pdf" 
             target="_blank"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -114,6 +119,7 @@ const Hero = () => {
           </motion.a>
           
           <motion.button 
+            onClick={buttonclick}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="px-8 py-4 border-2 border-amber-500/50 rounded-full font-semibold text-amber-400 hover:bg-amber-500/10 hover:border-amber-400 transition-all duration-300"
@@ -132,9 +138,7 @@ const Hero = () => {
           {[
             { Icon: Github, href: "https://github.com/MuhammadZafir" },
             { Icon: Linkedin, href: "https://linkedin.com/in/mzafirr" },
-            { Icon: Twitter, href: "https://twitter.com" },
             { Icon: Instagram, href: "https://instagram.com/muhammadzafirr" },
-            { Icon: Facebook, href: "https://facebook.com" }
           ].map((social, index) => (
             <motion.a 
               key={index}

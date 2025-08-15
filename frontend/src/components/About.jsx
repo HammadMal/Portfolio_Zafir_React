@@ -62,8 +62,8 @@ const About = () => {
                 <p className="text-gray-400 text-sm">University</p>
               </div>
               <div className="bg-gradient-to-br from-amber-600/10 to-amber-500/5 p-6 rounded-2xl border border-amber-500/20 text-center hover:scale-105 transition-transform duration-300">
-                <div className="text-3xl font-bold text-amber-400 mb-2">85%</div>
-                <p className="text-gray-400 text-sm">HSSC Score</p>
+                <div className="text-3xl font-bold text-amber-400 mb-2">2</div>
+                <p className="text-gray-400 text-sm">Research Publications</p>
               </div>
             </div>
 

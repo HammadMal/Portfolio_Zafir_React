@@ -92,7 +92,74 @@ const Projects = () => {
           </h2>
         </div>
 
-        {/* Project Showcase */}
+        {/* Top 3 Projects Section - NOW FIRST */}
+        <div className="mb-20">
+          {/* Section Title */}
+          <div className="text-center mb-10">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+              My <span className="bg-gradient-to-r from-amber-600 to-amber-400 bg-clip-text text-transparent">Top 3</span> Projects
+            </h3>
+            <p className="text-gray-400 text-sm">Click on any project to explore in detail</p>
+          </div>
+
+          {/* Project Grid */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {projects.slice(0, 3).map((project, idx) => (
+              <div 
+                key={idx}
+                onClick={() => setCurrentProject(idx)}
+                className="group cursor-pointer relative bg-gradient-to-br from-gray-900/50 to-gray-800/30 p-6 rounded-xl border border-gray-800 hover:border-amber-500/30 transition-all duration-300 hover:transform hover:-translate-y-2 overflow-hidden"
+              >
+                {/* Rank Badge */}
+                <div className="absolute top-4 right-4 w-8 h-8 bg-gradient-to-br from-amber-600 to-amber-500 rounded-full flex items-center justify-center text-black font-bold text-sm shadow-lg">
+                  {idx + 1}
+                </div>
+
+                {/* Hover Gradient Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-600/0 to-amber-500/0 group-hover:from-amber-600/5 group-hover:to-amber-500/5 transition-all duration-500 pointer-events-none"></div>
+
+                {/* Content */}
+                <div className="relative z-10">
+                  <div className="mb-4">
+                    {React.createElement(project.icon, {
+                      className: "w-10 h-10 text-amber-400 group-hover:scale-110 transition-transform duration-300"
+                    })}
+                  </div>
+                  <h4 className="text-white font-semibold mb-2 group-hover:text-amber-400 transition-colors duration-300">
+                    {project.title}
+                  </h4>
+                  <p className="text-gray-400 text-sm line-clamp-2 mb-3">{project.description}</p>
+                  
+                  {/* Tech Stack Preview */}
+                  <div className="flex flex-wrap gap-1">
+                    {project.technologies.slice(0, 3).map((tech, techIdx) => (
+                      <span key={techIdx} className="text-xs px-2 py-1 bg-black/30 text-amber-400/70 rounded-full">
+                        {tech}
+                      </span>
+                    ))}
+                    {project.technologies.length > 3 && (
+                      <span className="text-xs px-2 py-1 text-gray-500">
+                        +{project.technologies.length - 3} more
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* View Project Indicator */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-600 to-amber-400 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="flex items-center justify-center mb-16">
+          <div className="h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent w-full"></div>
+          <span className="px-4 text-amber-400 text-sm whitespace-nowrap">Project Details</span>
+          <div className="h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent w-full"></div>
+        </div>
+
+        {/* Project Showcase - NOW SECOND */}
         <div className="relative">
           {/* Main Project Display */}
           <div className="bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm rounded-2xl border border-gray-800 overflow-hidden">
@@ -104,6 +171,12 @@ const Projects = () => {
                   {React.createElement(projects[currentProject].icon, {
                     className: "w-32 h-32 text-amber-400 mx-auto"
                   })}
+                </div>
+                {/* Current Project Indicator */}
+                <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full">
+                  <span className="text-amber-400 text-sm">
+                    {currentProject + 1} / {projects.length}
+                  </span>
                 </div>
               </div>
 
@@ -167,9 +240,9 @@ const Projects = () => {
           <div className="flex justify-between items-center mt-8">
             <button 
               onClick={prevProject}
-              className="p-3 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300"
+              className="p-3 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 group"
             >
-              <ChevronLeft className="w-6 h-6 text-white" />
+              <ChevronLeft className="w-6 h-6 text-white group-hover:-translate-x-1 transition-transform" />
             </button>
 
             {/* Project Dots */}
@@ -189,32 +262,11 @@ const Projects = () => {
 
             <button 
               onClick={nextProject}
-              className="p-3 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300"
+              className="p-3 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 group"
             >
-              <ChevronRight className="w-6 h-6 text-white" />
+              <ChevronRight className="w-6 h-6 text-white group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
-        </div>
-
-        {/* Project Grid Preview */}
-        <div className="grid md:grid-cols-3 gap-6 mt-16">
-          {projects.slice(0, 3).map((project, idx) => (
-            <div 
-              key={idx}
-              onClick={() => setCurrentProject(idx)}
-              className="group cursor-pointer bg-gradient-to-br from-gray-900/50 to-gray-800/30 p-6 rounded-xl border border-gray-800 hover:border-amber-500/30 transition-all duration-300 hover:transform hover:-translate-y-2"
-            >
-              <div className="mb-4">
-                {React.createElement(project.icon, {
-                  className: "w-10 h-10 text-amber-400"
-                })}
-              </div>
-              <h4 className="text-white font-semibold mb-2 group-hover:text-amber-400 transition-colors duration-300">
-                {project.title}
-              </h4>
-              <p className="text-gray-400 text-sm line-clamp-2">{project.description}</p>
-            </div>
-          ))}
         </div>
       </div>
     </section>

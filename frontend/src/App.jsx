@@ -9,6 +9,9 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import StarField from './components/StarField';
+import Research from './components/Research';
+
+
 
 const App = () => {
   return (
@@ -21,6 +24,7 @@ const App = () => {
       <Skills />
       <Education />
       <Projects />
+      <Research />
       <Contact />
       <Footer />
     </div>

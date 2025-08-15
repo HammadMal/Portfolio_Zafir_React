@@ -9,15 +9,15 @@ const Education = () => {
       degree: "Bachelors in Electrical Engineering",
       period: "Current",
       description: "Electrical Engineering student at NUST with a proven ability to combine hardware and software skills to develop effective solutions. Core competencies include embedded systems development, programming in Python and C++, and a strong interest in leveraging AI/ML technologies.",
-      achievements: ["Dean's List", "Technical Lead - Robotics Club", "Research Assistant"]
+      achievements: ["Youth Parliament'24 : Best Delegate", "Undersecretary General for MCSMUN'24", "Research Assistant"]
     },
     {
       logo: "/aga-logo.jpeg",
       institution: "Aga Khan Higher Secondary School",
       degree: "Science General | HSSC",
-      period: "2019 - 2021",
-      description: "Achieved 85% in HSSC, with a focus on Computer Science, Mathematics, and Physics.",
-      achievements: ["Top 5% of Class", "Science Fair Winner", "Mathematics Olympiad Participant"]
+      period: "2019 - 2020",
+      description: "Achieved A grade in HSSC, with a focus on Computer Science, Mathematics, and Physics.",
+      achievements: ["President of Debating Society", "Assistant Marketing Director at DCMUN. , 2nd Regional IT Webinar 2021: 1st Position.", "Committee Director UNHRC Prodigy Model United Nations"]
     },
     {
       logo: "/bvs-logo.png",
@@ -25,7 +25,7 @@ const Education = () => {
       degree: "SSC Pre-Engineering",
       period: "2017 - 2019",
       description: "Studied SSC with a strong foundation in Mathematics, Physics and Chemistry.",
-      achievements: ["Honor Roll", "Science Club President", "Academic Excellence Award"]
+      achievements: ["Student Council", "Director of Marketing at BVSMUN"]
     }
   ];
 
@@ -107,10 +107,10 @@ const Education = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <span className="px-4 py-2 bg-amber-500/10 text-amber-400 rounded-full text-sm">
-              CGPA: 3.5+
+              CGPA: 3.0+
             </span>
             <span className="px-4 py-2 bg-amber-500/10 text-amber-400 rounded-full text-sm">
-              Expected Graduation: 2025
+              Expected Graduation: 2027
             </span>
             <span className="px-4 py-2 bg-amber-500/10 text-amber-400 rounded-full text-sm">
               Research Focus: AI/ML
