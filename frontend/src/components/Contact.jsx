@@ -1,24 +1,39 @@
-import React, { useState } from 'react';
-import { Send, Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { Send, Mail, Phone, MapPin, Github, Linkedin, Twitter, CheckCircle, AlertCircle } from 'lucide-react';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+  const form = useRef();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    emailjs
+      .sendForm(
+        "service_2gnqpji",  // Your service ID
+        "template_swghvc6", // Your template ID
+        form.current,
+        "-YI9gtyMonMW4acLf" // Your public key
+      )
+      .then(
+        (result) => {
+          setSubmitStatus('success');
+          setIsSubmitting(false);
+          form.current.reset();
+          // Clear success message after 5 seconds
+          setTimeout(() => setSubmitStatus(null), 5000);
+        },
+        (error) => {
+          setSubmitStatus('error');
+          setIsSubmitting(false);
+          // Clear error message after 5 seconds
+          setTimeout(() => setSubmitStatus(null), 5000);
+        }
+      );
   };
 
   return (
@@ -47,7 +62,7 @@ const Contact = () => {
                 <div>
                   <p className="text-gray-400 text-sm">Email</p>
                   <a href="mailto:your.email@example.com" className="text-white hover:text-amber-400 transition-colors">
-                  muhammadzafir248@gmail.com
+                    muhammadzafir248@gmail.com
                   </a>
                 </div>
               </div>
@@ -61,8 +76,7 @@ const Contact = () => {
                 <div>
                   <p className="text-gray-400 text-sm">Phone</p>
                   <a href="tel:+923001234567" className="text-white hover:text-amber-400 transition-colors">
-                    +92 309 1229572
-                  </a>
+                    +92 309 1229572                  </a>
                 </div>
               </div>
             </div>
@@ -92,7 +106,7 @@ const Contact = () => {
                   <Github className="w-5 h-5 text-gray-400 hover:text-amber-400" />
                 </a>
                 <a 
-                  href="https://www.linkedin.com/in/mzafirr/"
+                  href="https://linkedin.com/in/mzafirr"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-white/5 rounded-lg hover:bg-amber-500/20 transition-all duration-300 hover:scale-110"
@@ -103,34 +117,45 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Contact Form */}
+          {/* Contact Form with EmailJS */}
           <div className="bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm p-8 rounded-2xl border border-gray-800">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={form} onSubmit={sendEmail} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-gray-400 mb-2">Your Name</label>
+                <label htmlFor="from_name" className="block text-gray-400 mb-2">Your Name</label>
                 <input
                   type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
+                  id="from_name"
+                  name="from_name"
                   required
-                  className="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:border-amber-500 focus:outline-none transition-colors duration-300"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="John Doe"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-gray-400 mb-2">Your Email</label>
+                <label htmlFor="reply_to" className="block text-gray-400 mb-2">Your Email</label>
                 <input
                   type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
+                  id="reply_to"
+                  name="reply_to"
                   required
-                  className="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:border-amber-500 focus:outline-none transition-colors duration-300"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="john@example.com"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="subject" className="block text-gray-400 mb-2">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  required
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  placeholder="Project Inquiry"
                 />
               </div>
 
@@ -139,21 +164,49 @@ const Contact = () => {
                 <textarea
                   id="message"
                   name="message"
-                  value={formData.message}
-                  onChange={handleChange}
                   required
+                  disabled={isSubmitting}
                   rows="5"
-                  className="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:border-amber-500 focus:outline-none transition-colors duration-300 resize-none"
+                  className="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all duration-300 resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Tell me about your project..."
                 />
               </div>
 
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <div className="flex items-center gap-2 p-4 bg-green-500/10 border border-green-500/30 rounded-lg text-green-400">
+                  <CheckCircle className="w-5 h-5" />
+                  <span>Message sent successfully! I'll get back to you soon.</span>
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="flex items-center gap-2 p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400">
+                  <AlertCircle className="w-5 h-5" />
+                  <span>An error occurred. Please try again or email me directly.</span>
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-amber-600 to-amber-500 rounded-lg font-semibold text-black hover:scale-[1.02] hover:shadow-2xl hover:shadow-amber-500/30 transition-all duration-300"
+                disabled={isSubmitting}
+                className={`w-full flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold transition-all duration-300 ${
+                  isSubmitting 
+                    ? 'bg-gray-600 cursor-not-allowed opacity-50' 
+                    : 'bg-gradient-to-r from-amber-600 to-amber-500 text-black hover:scale-[1.02] hover:shadow-2xl hover:shadow-amber-500/30'
+                }`}
               >
-                Send Message
-                <Send className="w-5 h-5" />
+                {isSubmitting ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <Send className="w-5 h-5" />
+                  </>
+                )}
               </button>
             </form>
           </div>
