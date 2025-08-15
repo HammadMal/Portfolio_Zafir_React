@@ -154,7 +154,7 @@ const Research = () => {
                       </span>
                     )}
                   </div>
-                  <ExternalLink className="w-5 h-5 text-amber-400 group-hover:scale-110 transition-transform" />
+                  {/* <ExternalLink className="w-5 h-5 text-amber-400 group-hover:scale-110 transition-transform" /> */}
                 </div>
               </div>
             );
@@ -215,10 +215,10 @@ const Research = () => {
                   <FileText className="w-5 h-5" />
                   Read Paper
                 </a>
-                <button className="flex items-center gap-2 px-6 py-3 border border-amber-500/50 rounded-full text-amber-400 hover:bg-amber-500/10 transition-colors">
+                {/* <button className="flex items-center gap-2 px-6 py-3 border border-amber-500/50 rounded-full text-amber-400 hover:bg-amber-500/10 transition-colors">
                   <Download className="w-5 h-5" />
                   Download PDF
-                </button>
+                </button> */}
               </div>
             </div>
           </div>

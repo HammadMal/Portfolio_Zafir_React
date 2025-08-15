@@ -47,7 +47,7 @@ const Contact = () => {
                 <div>
                   <p className="text-gray-400 text-sm">Email</p>
                   <a href="mailto:your.email@example.com" className="text-white hover:text-amber-400 transition-colors">
-                    your.email@example.com
+                  muhammadzafir248@gmail.com
                   </a>
                 </div>
               </div>
@@ -61,7 +61,7 @@ const Contact = () => {
                 <div>
                   <p className="text-gray-400 text-sm">Phone</p>
                   <a href="tel:+923001234567" className="text-white hover:text-amber-400 transition-colors">
-                    +92 300 1234567
+                    +92 309 1229572
                   </a>
                 </div>
               </div>
@@ -92,20 +92,12 @@ const Contact = () => {
                   <Github className="w-5 h-5 text-gray-400 hover:text-amber-400" />
                 </a>
                 <a 
-                  href="https://linkedin.com/in/mzafirr"
+                  href="https://www.linkedin.com/in/mzafirr/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-white/5 rounded-lg hover:bg-amber-500/20 transition-all duration-300 hover:scale-110"
                 >
                   <Linkedin className="w-5 h-5 text-gray-400 hover:text-amber-400" />
-                </a>
-                <a 
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-white/5 rounded-lg hover:bg-amber-500/20 transition-all duration-300 hover:scale-110"
-                >
-                  <Twitter className="w-5 h-5 text-gray-400 hover:text-amber-400" />
                 </a>
               </div>
             </div>

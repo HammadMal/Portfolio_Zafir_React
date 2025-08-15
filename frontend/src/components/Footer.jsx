@@ -41,22 +41,13 @@ const Footer = () => {
               <Github className="w-4 h-4 text-gray-400 group-hover:text-amber-400 transition-colors" />
             </a>
             <a 
-              href="https://linkedin.com/in/mzafirr"
+              href="https://www.linkedin.com/in/mzafirr/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 bg-white/5 rounded-lg hover:bg-amber-500/20 transition-all duration-300 hover:scale-110 group"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-4 h-4 text-gray-400 group-hover:text-amber-400 transition-colors" />
-            </a>
-            <a 
-              href="https://twitter.com/your_twitter_handle"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 bg-white/5 rounded-lg hover:bg-amber-500/20 transition-all duration-300 hover:scale-110 group"
-              aria-label="Twitter"
-            >
-              <Twitter className="w-4 h-4 text-gray-400 group-hover:text-amber-400 transition-colors" />
             </a>
             <a 
               href="https://instagram.com/muhammadzafirr"

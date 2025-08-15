@@ -4,7 +4,7 @@ import { GraduationCap, Calendar, Award } from 'lucide-react';
 const Education = () => {
   const educationData = [
     {
-      logo: "/nust-logo.png",
+      logo: "/nust.png",
       institution: "National University of Sciences and Technology",
       degree: "Bachelors in Electrical Engineering",
       period: "Current",
@@ -12,18 +12,18 @@ const Education = () => {
       achievements: ["Youth Parliament'24 : Best Delegate", "Undersecretary General for MCSMUN'24", "Research Assistant"]
     },
     {
-      logo: "/aga-logo.jpeg",
+      logo: "/akhss.jpeg",
       institution: "Aga Khan Higher Secondary School",
       degree: "Science General | HSSC",
-      period: "2019 - 2020",
+      period: "2020 - 2022",
       description: "Achieved A grade in HSSC, with a focus on Computer Science, Mathematics, and Physics.",
       achievements: ["President of Debating Society", "Assistant Marketing Director at DCMUN. , 2nd Regional IT Webinar 2021: 1st Position.", "Committee Director UNHRC Prodigy Model United Nations"]
     },
     {
-      logo: "/bvs-logo.png",
+      logo: "/bvs.png",
       institution: "BVS Parsi High School",
       degree: "SSC Pre-Engineering",
-      period: "2017 - 2019",
+      period: "2018 - 2020",
       description: "Studied SSC with a strong foundation in Mathematics, Physics and Chemistry.",
       achievements: ["Student Council", "Director of Marketing at BVSMUN"]
     }
@@ -61,9 +61,11 @@ const Education = () => {
                   <div className="group bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm p-6 rounded-2xl border border-gray-800 hover:border-amber-500/30 transition-all duration-300 hover:transform hover:scale-[1.02]">
                     {/* Header */}
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="w-16 h-16 bg-amber-500/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500/20 transition-colors duration-300">
-                        <GraduationCap className="w-8 h-8 text-amber-400" />
-                      </div>
+                        <img 
+                          src={edu.logo} 
+                          alt={edu.institution}
+                          className="w-12 h-12 object-contain"
+                        />
                       <div className="flex-1">
                         <h3 className="text-xl font-bold text-white mb-1 group-hover:text-amber-400 transition-colors duration-300">
                           {edu.institution}
