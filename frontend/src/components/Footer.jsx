@@ -18,7 +18,7 @@ const Footer = () => {
               © {currentYear} All Rights Reserved
             </p>
             <p className="text-gray mt-2">
-              Made with <Heart className="inline w-3 h-3 text-red-500 animate-pulse" /> by Hammad Malik
+              Made with <Heart className="inline w-3 h-3 text-red-500 animate-pulse" /> by Muhammad Zafir
             </p>
           </div>
 
